@@ -1,4 +1,5 @@
 ﻿using System;
+using Tarea1.Objetos;
 
 namespace Tarea1
 {
@@ -6,7 +7,10 @@ namespace Tarea1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            Console.WriteLine("Hola Bievendio Ingresa los siguientes datos:");
+            Cliente cliente = Cliente.Registro();
+            Cliente.Imprimir(cliente);
         }
     }
 }
