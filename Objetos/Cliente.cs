@@ -9,7 +9,7 @@ namespace Tarea1.Objetos
     internal class Cliente
     {
         public string Nombre { get; set; }
-        public long Telefono { get; set;}
+        public string Telefono { get; set;}
         public string Correo { get; set; } 
         
         public static void Imprimir(Cliente cliente)
@@ -34,7 +34,7 @@ namespace Tarea1.Objetos
                     Console.WriteLine("Ingrese su Nombre:");
                     cliente.Nombre = Console.ReadLine();
                     Console.WriteLine("Ingrese su telefono:");
-                    cliente.Telefono = int.Parse(Console.ReadLine());
+                    cliente.Telefono = Console.ReadLine();
                     Console.WriteLine("Ingrese su correo:");
                     cliente.Correo = Console.ReadLine();
                     a = false;

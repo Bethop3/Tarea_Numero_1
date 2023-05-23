@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,44 @@ namespace Tarea1.Objetos
 {
     internal class Productos
     {
+        public string Opciones1()
+        {
+
+            // Seleccionar cualquier opcion del menu
+            var fruit = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("\t Seleccione Cualquier opcion: ")
+                    .PageSize(10)
+                    .MoreChoicesText("[grey](Muevete Con las teclas Arriba y Abajo, dar ENTER para elegir la opcion)[/]")
+                    .AddChoices(new[] {
+             "Aplicar Descuento del 10 %", "Aplicar 3 meses sin intereses",
+                    }));
+
+            // regresar la opcion seleccionada como un string
+            return fruit;
+        }
+        public string Opciones2()
+        {
+
+            // Seleccionar cualquier opcion del menu
+            var fruit = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("\t Seleccione Cualquier opcion: ")
+                    .PageSize(10)
+                    .MoreChoicesText("[grey](Muevete Con las teclas Arriba y Abajo, dar ENTER para elegir la opcion)[/]")
+                    .AddChoices(new[] {
+             "Aplicar Descuento del 10 %", "Aplicar 6 o 12 meses sin intereses",
+                    }));
+
+            // regresar la opcion seleccionada como un string
+            return fruit;
+        }
         public int Descuento(int Precio)
         {
-            if (Precio >= 5000) 
+            if (Precio > 5000) 
             {
                 int des = (Precio / 100) * 10;
-                Console.WriteLine("\n Solo Aplica el descuento: \n");
+                Console.WriteLine("\n Su descuento es de: "+des+"\n");
                 return des;
             }
             
@@ -21,11 +54,18 @@ namespace Tarea1.Objetos
         }
         public string Intereses(int Precio)
         {
-            return Precio >= 8000 ? "Aplica" : "No aplica";
-        }
-        public string Interes (int Precio)
-        {
-            return Precio >= 10000 ? "Aplica" : "No Aplica";
+
+            if( Precio >= 8000 && Precio < 10000)
+            {
+                return "Aplica";
+            }
+            if ( Precio >= 10000)
+            {
+                return "Aplica";
+            }
+
+            return "No aplica";
+
         }
             
         public void Ingresar()
@@ -40,29 +80,52 @@ namespace Tarea1.Objetos
                 int Articulo = int.Parse(Console.ReadLine());
                 double descuento = this.Descuento(Articulo);
                 string Condicion = this.Intereses(Articulo);
-                string Condicion1 = this.Interes(Articulo);
                 switch (Condicion)
                 {
                     case "Aplica":
-                        switch (Condicion1)
+                        
+                        if (Articulo > 8000 && Articulo < 10000)
                         {
-                            case "Aplica":
-
-                                break;
-
-                            case "No Aplica":
-
-                                break;
+                            string decision = this.Opciones1();
+                            if (decision == "Aplicar Descuento del 10 %")
+                            {
+                                Console.WriteLine("Ustede eligio descuento.♥");
+                                Console.WriteLine("El precio del producto es de " + (Articulo - descuento));
+                                Environment.Exit(0);
+                            }
+                            if (decision == "Aplicar 3 meses sin intereses")
+                            {
+                                Console.WriteLine("Usted eligio Pagar a meses sin intereses. ♥");
+                                Console.WriteLine("El precio del producto es de " +Articulo);
+                                Environment.Exit(0);
+                            }
+                        }
+                        if (Articulo >= 10000)
+                        {
+                            string desicion = this.Opciones2();
+                            if (desicion == "Aplicar Descuento del 10 %")
+                            {
+                                Console.WriteLine("Ustede eligio descuento.♥");
+                                Console.WriteLine("El precio del producto es de "+(Articulo - descuento));
+                                Environment.Exit(0);
+                            }
+                            if (desicion == "Aplicar 6 o 12 meses sin intereses")
+                            {
+                                Console.WriteLine("Usted eligio Pagar a meses sin intereses. ♥");
+                                Console.WriteLine("El precio del producto es de " +Articulo);
+                                Environment.Exit(0);
+                            }
                         }
                         break;
-
-                    case "No aplica": 
-                        Console.WriteLine("El precio es de "+(Articulo+descuento));
+                    case "No aplica":
+                        Console.WriteLine("El precio es de "+(Articulo-descuento));
                         break;
                 }
 
             }catch (Exception ex)
             {
+                Console.Clear();
+                Ingresar();
                 Console.WriteLine(ex.Message);
             }
         }

@@ -11,6 +11,8 @@ namespace Tarea1
             Console.WriteLine("Hola Bievendio Ingresa los siguientes datos:");
             Cliente cliente = Cliente.Registro();
             Cliente.Imprimir(cliente);
+            Productos productos = new Productos();
+            productos.Ingresar();
         }
     }
 }
