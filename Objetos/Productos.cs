@@ -67,6 +67,16 @@ namespace Tarea1.Objetos
             return "No aplica";
 
         }
+        public int Ingresar()
+        {
+            int lola;
+            for(int i = 0; i<=5; i++)
+            {
+                Console.WriteLine("Ingresa el producto numero "+(i+1));
+                lola = int.Parse(Console.ReadLine()); 
+            }
+            return 0;
+        }
             
         public void Ingresar()
         {
