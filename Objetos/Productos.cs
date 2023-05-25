@@ -42,18 +42,18 @@ namespace Tarea1.Objetos
             // regresar la opcion seleccionada como un string
             return fruit;
         }
-        public int Descuento(int Precio)
+        public double Descuento(double Precio)
         {
             if (Precio > 5000) 
             {
-                int des = (Precio / 100) * 10;
+                double des = (Precio / 100) * 10;
                 Console.WriteLine("\n Su descuento es de: "+des+"\n");
                 return des;
             }
             
             return 0;
         }
-        public string Intereses(int Precio)
+        public string Intereses(double Precio)
         {
 
             if( Precio >= 8000 && Precio < 10000)
@@ -68,15 +68,15 @@ namespace Tarea1.Objetos
             return "No aplica";
 
         }
-        public int IngresarNum()
+        public double IngresarNum()
         {
-            int aux = 0;
+            double aux = 0;
             bool t = true;
             while (t)
             {
                 try
                 {
-                    int lola;
+                    double lola;
                     int i;
                     Console.WriteLine("Ingresa Cuantos productos comprara");
                     i= int.Parse(Console.ReadLine());
@@ -109,7 +109,7 @@ namespace Tarea1.Objetos
             Console.ForegroundColor = ConsoleColor.White;
             try
             {
-                int Articulo = this.IngresarNum();
+                double Articulo = this.IngresarNum();
                 double descuento = this.Descuento(Articulo);
                 string Condicion = this.Intereses(Articulo);
                 switch (Condicion)
@@ -124,7 +124,7 @@ namespace Tarea1.Objetos
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("Ustede eligio descuento.♥");
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("El precio del producto es de " + (Articulo - descuento));
+                                Console.WriteLine("El precio total es de " + (Articulo - descuento));
                                 Environment.Exit(0);
                             }
                             if (decision == "Aplicar 3 meses sin intereses")
@@ -132,7 +132,7 @@ namespace Tarea1.Objetos
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("Usted eligio Pagar a meses sin intereses. ♥");
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("El precio del producto es de " +Articulo);
+                                Console.WriteLine("El precio a pagar a meses es: " +(Articulo/3));
                                 Environment.Exit(0);
                             }
                         }
@@ -144,7 +144,7 @@ namespace Tarea1.Objetos
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("Ustede eligio descuento.♥");
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("El precio del producto es de "+(Articulo - descuento));
+                                Console.WriteLine("El precio total es de " +(Articulo - descuento));
                                 Environment.Exit(0);
                             }
                             if (desicion == "Aplicar 3 meses sin intereses")
@@ -152,7 +152,7 @@ namespace Tarea1.Objetos
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("Usted eligio Pagar a 3 meses sin intereses. ♥");
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("El precio del producto es de " + Articulo);
+                                Console.WriteLine("El precio a pagar a meses es: " + (Articulo / 3));
                                 Environment.Exit(0);
                             }
                             if (desicion == "Aplicar 6 meses sin intereses")
@@ -160,7 +160,7 @@ namespace Tarea1.Objetos
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("Usted eligio Pagar a 6 meses sin intereses. ♥");
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("El precio del producto es de " +Articulo);
+                                Console.WriteLine("El precio a pagar a meses es: " + (Articulo / 6));
                                 Environment.Exit(0);
                             }
                             if (desicion == "Aplicar 12 meses sin intereses")
@@ -168,7 +168,7 @@ namespace Tarea1.Objetos
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("Usted eligio Pagar a 12 meses sin intereses. ♥");
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("El precio del producto es de " + Articulo);
+                                Console.WriteLine("El precio a pagar a meses es: " + (Articulo / 12));
                                 Environment.Exit(0);
                             }
                         }
