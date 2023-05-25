@@ -37,12 +37,40 @@ namespace Tarea1.Objetos
             {
                 try
                 {
+                    
                     Console.WriteLine("Ingrese su Nombre:");
+                    
                     cliente.Nombre = Console.ReadLine();
+                    
+                    if( cliente.Nombre.Length == 0 )
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Porfavor Ingrese los datos correctamente.");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        continue;
+                    }
+                    
                     Console.WriteLine("Ingrese su telefono:");
                     cliente.Telefono = Console.ReadLine();
+                    if (cliente.Telefono.Length == 0)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Porfavor Ingrese los datos correctamente.");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        continue;
+                    }
                     Console.WriteLine("Ingrese su correo:");
                     cliente.Correo = Console.ReadLine();
+                    if (cliente.Correo.Length == 0)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Porfavor Ingrese los datos correctamente.");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        continue;
+                    }
                     a = false;
                 }
                 catch (Exception ex)
