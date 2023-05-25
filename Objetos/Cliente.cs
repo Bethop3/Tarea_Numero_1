@@ -16,11 +16,17 @@ namespace Tarea1.Objetos
         {
             Console.Clear();
             Console.WriteLine("Nombre del cliente: ");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(cliente.Nombre);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Telefono del cliente:");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(cliente.Telefono);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Correo del cliente: ");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(cliente.Correo);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n");
         }
         public static Cliente Registro()
