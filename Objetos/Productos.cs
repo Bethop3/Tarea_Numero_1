@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Tarea1.Objetos
 {
@@ -76,10 +77,12 @@ namespace Tarea1.Objetos
                 try
                 {
                     int lola;
-                    
-                    for (int i = 0; i < 5; i++)
+                    int i;
+                    Console.WriteLine("Ingresa Cuantos productos comprara");
+                    i= int.Parse(Console.ReadLine());
+                    for ( int j = 0; j < i; j++)
                     {
-                        Console.WriteLine("Ingresa el producto numero " + (i + 1));
+                        Console.WriteLine("Ingresa el producto numero " + (j + 1));
                         lola = int.Parse(Console.ReadLine());
                         aux = aux + lola ;
                     }
@@ -99,6 +102,7 @@ namespace Tarea1.Objetos
         {
             Console.WriteLine("Instrucciones: \n");
             Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(" \n Devera ingresar los precios de los productos.\n");
             Console.WriteLine("1. Si es mayor o igual a 5000 se le aplicara un descuento del 10% \n");
             Console.WriteLine("2. Si es mayor o igual a 8000, se aplicara una opcion de pago a 3 meses \n sin intereses (Tendra que elegir si quiere el descuento del 10% o pagar a meses sin interese)\n ");
             Console.WriteLine("3. Si es mayor a 10000, se le aplicara una opcion de pago a 6 o 10 meses \n sin intereses (Tendra que elegir si quiere el descuento del 10% o pagar a meses sin interese)\n ");
