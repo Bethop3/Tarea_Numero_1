@@ -36,7 +36,7 @@ namespace Tarea1.Objetos
                     .PageSize(10)
                     .MoreChoicesText("[grey](Muevete Con las teclas Arriba y Abajo, dar ENTER para elegir la opcion)[/]")
                     .AddChoices(new[] {
-             "Aplicar Descuento del 10 %", "Aplicar 6 o 12 meses sin intereses",
+             "Aplicar Descuento del 10 %","Aplicar 3 meses sin intereses", "Aplicar 6 meses sin intereses","Aplicar 12 meses sin intereses",
                     }));
 
             // regresar la opcion seleccionada como un string
@@ -147,12 +147,28 @@ namespace Tarea1.Objetos
                                 Console.WriteLine("El precio del producto es de "+(Articulo - descuento));
                                 Environment.Exit(0);
                             }
-                            if (desicion == "Aplicar 6 o 12 meses sin intereses")
+                            if (desicion == "Aplicar 3 meses sin intereses")
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("Usted eligio Pagar a meses sin intereses. ♥");
+                                Console.WriteLine("Usted eligio Pagar a 3 meses sin intereses. ♥");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("El precio del producto es de " + Articulo);
+                                Environment.Exit(0);
+                            }
+                            if (desicion == "Aplicar 6 meses sin intereses")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Usted eligio Pagar a 6 meses sin intereses. ♥");
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.WriteLine("El precio del producto es de " +Articulo);
+                                Environment.Exit(0);
+                            }
+                            if (desicion == "Aplicar 12 meses sin intereses")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Usted eligio Pagar a 12 meses sin intereses. ♥");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("El precio del producto es de " + Articulo);
                                 Environment.Exit(0);
                             }
                         }
